@@ -1,66 +1,21 @@
-## Foundry
-
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
-
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
+# Ethan Walker's Token
+This token development is based on Updraft.Cyfrin's course [Develop an ERC20 Crypto Curreny](https://updraft.cyfrin.io/courses/advanced-foundry/How-to-create-an-erc20-crypto-currency/erc-and-erc20-fundamentals), and I hope to expand and test it extensively to make it a more comprehensive cryptocurrency, cable of conducting simulated transactions and helping me gain a deeper insight of tokens in Web3.  
+Everything here deeply excites and amazes me! Sincerely hope to connect with like-minded partners to discuss, progress, and grow together.
 
 ## Usage
 
-### Build
 
-```shell
-$ forge build
-```
 
-### Test
+## What I have do to expend it
+### src
 
-```shell
-$ forge test
-```
 
-### Format
+### script
 
-```shell
-$ forge fmt
-```
 
-### Gas Snapshots
+### test
 
-```shell
-$ forge snapshot
-```
 
-### Anvil
+## what's more
 
-```shell
-$ anvil
-```
 
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```

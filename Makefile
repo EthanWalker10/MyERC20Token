@@ -4,6 +4,8 @@
 .PHONY: all test test-zk clean deploy fund help install snapshot format anvil install deploy deploy-zk deploy-zk-sepolia deploy-sepolia verify
 
 DEFAULT_ANVIL_KEY := 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+SPENDER_1_KEY := 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
+SPENDER_2_KEY := 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a
 DEFAULT_ZKSYNC_LOCAL_KEY := 0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110
 
 # all 是一个目标，它依赖于其他目标 clean、remove、install、update 和 build。运行 make all 会依次执行这些目标。
@@ -36,7 +38,16 @@ anvil :; anvil -m 'test test test test test test test test test test test junk' 
 
 # 有 @ 符号: 如果命令前有 @ 符号，Makefile 在执行该命令时不会显示命令本身，只会显示命令的输出结果
 deploy:
-	@forge create src/OurToken.sol:OurToken --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY) --broadcast
+	@forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY)
+
+deploy-manual:
+	@forge script script/DeployManualToken.s.sol:DeployManualToken --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY) --broadcast
+
+deploy-spender-1:
+	@forge script script/DeploySpender.s.sol:DeploySpender_1 --rpc-url http://localhost:8545 --private-key $(SPENDER_1_KEY) --broadcast
+
+deploy-spender-2:
+	@forge script script/DeploySpender.s.sol:DeploySpender_2 --rpc-url http://localhost:8545 --private-key $(SPENDER_2_KEY) --broadcast
 
 deploy-sepolia:
 	@forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url $(SEPOLIA_RPC_URL) --account $(ACCOUNT) --sender $(SENDER) --etherscan-api-key $(ETHERSCAN_API_KEY) --broadcast --verify
