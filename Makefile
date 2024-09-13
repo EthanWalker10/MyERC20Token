@@ -38,7 +38,7 @@ anvil :; anvil -m 'test test test test test test test test test test test junk' 
 
 # 有 @ 符号: 如果命令前有 @ 符号，Makefile 在执行该命令时不会显示命令本身，只会显示命令的输出结果
 deploy:
-	@forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY)
+	@forge script script/my-token/DeployMyToken.s.sol:DeployMyToken --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY)
 
 deploy-manual:
 	@forge script script/DeployManualToken.s.sol:DeployManualToken --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY) --broadcast
